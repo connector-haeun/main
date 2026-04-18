@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하은커넥터 - 당신의 미션을 연결합니다</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 미니멀리즘 및 브랜드 컬러 커스텀 설정 */
+        :root {
+            --primary-blue: #007BFF;
+            --primary-dark: #0056b3;
+        }
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+        }
+
+        .text-primary { color: var(--primary-blue); }
+        .bg-primary { background-color: var(--primary-blue); }
+        .hover-bg-primary:hover { background-color: var(--primary-dark); }
+        .border-primary { border-color: var(--primary-blue); }
+
+        /* 탭 메뉴 스타일 */
+        .tab-btn {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-btn.active {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            font-weight: bold;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 서비스 프로세스 연결선 */
+        .process-line {
+            position: relative;
+        }
+        @media (min-width: 768px) {
+            .process-line::after {
+                content: '';
+                position: absolute;
+                top: 24px;
+                right: -50%;
+                width: 100%;
+                height: 2px;
+                background-color: #e5e7eb;
+                z-index: -1;
+            }
+            .process-line:last-child::after { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header (헤더) -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="text-2xl font-bold text-primary tracking-tighter">HAEUN CONNECTOR</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-primary transition-colors">회사소개</a>
+                    <a href="#products" class="text-gray-600 hover:text-primary transition-colors">제품소개</a>
+                    <a href="#services" class="text-gray-600 hover:text-primary transition-colors">서비스</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">예약 및 위치</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (메인) -->
+    <section class="relative pt-20 h-screen flex items-center justify-center bg-gray-900">
+        <div class="absolute inset-0 z-0">
+            <!-- 고객이 커넥터를 들고 웃고 있는 이미지 (Unsplash 산업 이미지 대체) -->
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="엔지니어 배경" class="w-full h-full object-cover opacity-40">
+        </div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                당신의 미션을 연결합니다.<br>
+                <span class="text-primary">하은커넥터</span>
+            </h1>
+            <p class="text-xl text-gray-200 mb-8">안정적인 네트워크와 산업의 기반, 최적의 부품으로 완성합니다.</p>
+            <a href="#contact" class="inline-block bg-primary text-white font-bold py-3 px-8 rounded-full hover-bg-primary transition-colors text-lg">상담 예약하기</a>
+        </div>
+    </section>
+
+    <!-- About Us (소개) -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">About Us</h2>
+                <div class="w-16 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">30</div>
+                    <h3 class="text-xl font-bold mb-3">30년의 전문성</h3>
+                    <p class="text-gray-600 leading-relaxed">다양한 산업 현장에서 축적된 30년간의 커넥터 취급 노하우로 최적의 솔루션을 제공합니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-full flex items-center justify-center mx-auto mb-6 font-bold">QC</div>
+                    <h3 class="text-xl font-bold mb-3">최신 검사 장비</h3>
+                    <p class="text-gray-600 leading-relaxed">정밀한 신호 전달을 보장하기 위해 최신 계측 장비를 통한 엄격한 품질 관리를 실시합니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-full flex items-center justify-center mx-auto mb-6 font-bold">Trust</div>
+                    <h3 class="text-xl font-bold mb-3">운영 철학</h3>
+                    <p class="text-gray-600 leading-relaxed">정직한 가격 정책과 고객의 사용 환경(상황)에 맞는 맞춤형 커넥터 선정을 최우선으로 합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products (제품) -->
+    <section id="products" class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Products</h2>
+                <p class="text-gray-500 mb-6">엄격한 기준을 통과한 고품질 커넥터 및 케이블을 제공합니다.</p>
+                <div class="w-16 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12 border-b border-gray-200" id="tab-buttons">
+                <!-- Buttons will be generated by JS -->
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="tab-contents-container">
+                <!-- Contents will be generated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services (서비스) -->
+    <section id="services" class="py-24 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Connecting Process</h2>
+                <p class="text-gray-400">체계적인 단계별 상담으로 차별화된 만족감을 약속합니다.</p>
+                <div class="w-16 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 text-center mb-16">
+                <div class="process-line">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold border-4 border-gray-800">1</div>
+                    <h3 class="text-xl font-bold mb-2">초기 상담</h3>
+                    <p class="text-gray-400 text-sm">요구사항 파악 및 환경 분석</p>
+                </div>
+                <div class="process-line">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold border-4 border-gray-800">2</div>
+                    <h3 class="text-xl font-bold mb-2">담당 업무 상담</h3>
+                    <p class="text-gray-400 text-sm">기구/회로 설계자와의 세밀한 기술 조율</p>
+                </div>
+                <div class="process-line">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold border-4 border-gray-800">3</div>
+                    <h3 class="text-xl font-bold mb-2">커넥터 추천 및 공급</h3>
+                    <p class="text-gray-400 text-sm">스펙에 맞는 최적의 제품 선정 및 납품</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 rounded-xl p-8 text-center max-w-3xl mx-auto border border-gray-700">
+                <h3 class="text-2xl font-bold mb-4 text-primary">개인별 맞춤 서비스</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    단순한 부품 판매를 넘어, 귀사의 프로젝트 목적과 개발 단계에 맞는 밀착 기술 지원을 제공합니다. 
+                    프로토타입 소량 제작부터 양산까지, 각 업무 특성에 맞는 세밀한 컨설팅을 경험해 보세요.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking & Location (예약 및 위치) -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Booking Form -->
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">방문 예약 및 문의</h2>
+                    <p class="text-gray-600 mb-8">전문가의 정확한 상담을 위해 방문 전 예약을 권장합니다.</p>
+                    
+                    <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">이름 / 회사명</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">연락처</label>
+                            <input type="tel" id="phone" required placeholder="010-0000-0000" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label for="date" class="block text-sm font-medium text-gray-700 mb-2">방문 희망 일자</label>
+                            <input type="date" id="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-bold py-4 px-8 rounded-lg hover-bg-primary transition-colors">
+                            예약 신청하기
+                        </button>
+                    </form>
+
+                    <!-- 예약 완료 메시지 박스 (기본 숨김) -->
+                    <div id="successMessage" class="hidden mt-6 p-4 bg-green-50 text-green-700 border border-green-200 rounded-lg text-center">
+                        예약 신청이 정상적으로 접수되었습니다. 담당자가 곧 연락드리겠습니다.
+                    </div>
+                </div>
+
+                <!-- Location & Contact Info -->
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Contact & Location</h2>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="min-w-[80px] font-bold text-gray-900">전화번호</div>
+                            <div class="text-gray-600 font-medium text-lg">02-2618-7425</div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="min-w-[80px] font-bold text-gray-900">운영시간</div>
+                            <div class="text-gray-600">평일 오전 9:00 ~ 오후 7:00<br><span class="text-sm text-gray-500">(주말 및 공휴일 휴무)</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="min-w-[80px] font-bold text-gray-900">주소</div>
+                            <div class="text-gray-600">서울시 구로구 경인로53길 15<br>중앙유통단지</div>
+                        </div>
+                    </div>
+
+                    <!-- Google Maps Iframe -->
+                    <div class="w-full h-80 rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.202570020658!2d126.8770744!3d37.5267156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e5e7834ea57%3A0x6b2e1a90ba1f3a5b!2z7ISc7Jq47Yq567OE7IucIOq1rOuhnOq1rCDqsr0g7J2466GcNTPquLggMTU!5e0!3m2!1sko!2skr!4v1700000000000!5m2!1sko!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-2xl font-bold text-white mb-4 tracking-tighter">HAEUN CONNECTOR</div>
+            <p class="mb-4">서울특별시 구로구 경인로53길 15, 중앙유통단지 | Tel: 02-2618-7425</p>
+            <p class="text-sm">Copyright &copy; 2026 Haeun Connector. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 로직 -->
+    <script>
+        // 제품 데이터 (카테고리별 5개의 임시 이미지 데이터)
+        // 실제 운영시 imgUrl 부분에 제품 실사 이미지를 넣으시면 됩니다.
+        const productsData = [
+            { id: 'ms', name: 'MS Connector', description: '군사 규격의 견고함을 자랑하는 다핀 원형 커넥터 (Military Standard)' },
+            { id: 'bnc', name: 'BNC Connector', description: '오실로스코프 및 영상 장비에 주로 사용되는 베이오넷 결합 방식 커넥터' },
+            { id: 'sma', name: 'SMA Connector', description: '나사 조임 방식으로 우수한 고주파 특성을 지닌 소형 커넥터' },
+            { id: 'triaxial', name: 'Triaxial Connector', description: '이중 실드로 노이즈 차단 성능이 극대화된 3축 커넥터' },
+            { id: 'sck', name: '원형 SCK Connector', description: '안정적인 체결을 지원하는 산업용 원형 커넥터 라인업' },
+            { id: 'rfcable', name: 'RF Cable', description: '신호 손실을 최소화하는 고주파 전송용 동축 케이블 어셈블리' }
+        ];
+
+        // 초기화 및 DOM 렌더링
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnContainer = document.getElementById('tab-buttons');
+            const contentContainer = document.getElementById('tab-contents-container');
+
+            productsData.forEach((category, index) => {
+                // 1. 탭 버튼 생성
+                const btn = document.createElement('button');
+                btn.className = `tab-btn px-6 py-3 text-lg font-medium text-gray-600 hover:text-primary ${index === 0 ? 'active' : ''}`;
+                btn.textContent = category.name;
+                btn.onclick = (e) => openTab(e, category.id);
+                btnContainer.appendChild(btn);
+
+                // 2. 탭 컨텐츠 (이미지 5개 렌더링) 생성
+                const contentDiv = document.createElement('div');
+                contentDiv.id = category.id;
+                contentDiv.className = `tab-content ${index === 0 ? 'active' : ''}`;
+                
+                // 카테고리 설명 추가
+                let html = `<p class="text-center text-primary font-medium mb-8">${category.description}</p>`;
+                
+                // 5개의 이미지 그리드 (상단 3개, 하단 2개 정렬을 위해 Flex/Grid 조합)
+                html += `<div class="flex flex-wrap justify-center gap-6">`;
+                for(let i=1; i<=5; i++) {
+                    // Placeholder 이미지를 사용하여 제품군 구별
+                    let seed = category.id + i;
+                    let placeholderUrl = `https://picsum.photos/seed/${seed}/400/300`;
+                    
+                    html += `
+                        <div class="w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.333%-1.5rem)] lg:w-[calc(20%-1.2rem)] bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-shadow group">
+                            <div class="h-48 overflow-hidden bg-gray-200">
+                                <img src="${placeholderUrl}" alt="${category.name} 이미지 ${i}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-4 text-center">
+                                <h4 class="font-bold text-gray-800 text-sm">${category.name} Type ${i}</h4>
+                            </div>
+                        </div>
+                    `;
+                }
+                html += `</div>`;
+                contentDiv.innerHTML = html;
+                contentContainer.appendChild(contentDiv);
+            });
+        });
+
+        // 탭 전환 로직
+        function openTab(evt, tabId) {
+            // 모든 컨텐츠 숨기기
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // 모든 버튼 비활성화 상태로 변경
+            const tabBtns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("active");
+            }
+
+            // 선택된 탭과 버튼 활성화
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // 예약 폼 제출 로직 (경고창 대신 UI 메시지 박스 사용)
+        function handleFormSubmit(event) {
+            event.preventDefault(); // 페이지 새로고침 방지
+            
+            // 폼 데이터 수집 (실제 백엔드 연동시 사용)
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+
+            // 성공 메시지 표시
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.remove('hidden');
+            
+            // 폼 초기화
+            document.getElementById('bookingForm').reset();
+
+            // 5초 후 메시지 숨김
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
